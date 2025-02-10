@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(to right, #dff2fd, #f5f9fc);
+            padding: 20px 12%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Header (Wider) */
+        /* Full-Width Header */
+header {
+    width: 100vw; /* Full screen width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%; /* Adds left and right padding */
+    /* background: #fff; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+
+        .logo img {
+            height: 50px;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+            padding: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 0;
+            display: inline-block;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0055b7;
+            border-bottom: 2px solid #0055b7;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 10;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown li:hover {
+            background: #f0f0f0;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            max-width: 50%;
+            padding-right: 20px;
+            align-self: flex-end;
+            margin-top: 120px; /* Push text slightly below the header */
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .hero-content a {
+            font-size: 18px;
+            color: #0055b7;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .hero-content a:hover {
+            color: #002d70;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .mobile-nav ul li.active .mobile-dropdown {
+            display: block;
+        }
+
+        .close-menu {
+            font-size: 30px;
+            cursor: pointer;
+            display: block;
+            text-align: right;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 60px 8%;
+            }
+            .hero-content {
+                max-width: 70%;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 50px 5%;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding-right: 0;
+                margin-top: 350px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+
+        .footer {
+            background-color: #040c28;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column hr {
+            width: 50px;
+            border: 2px solid #ff6600;
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff6600;
+        }
+
+        .footer-column p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-column {
+                text-align: center;
+            }
+            .location-item {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+        /* === SECTION LAYOUT (DESKTOP) === */
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+}
+
+/* === CONTENT BOXES === */
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: block; /* Prevents extra spacing below the image */
+}
+
+/* === TEXT CONTAINER === */
+.text-box {
+    background-color: #f4f4f4;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.text-box h2 {
+    font-family: "Bower", Georgia, "Times New Roman", serif;
+    font-size: 3.25rem;
+    margin-bottom: 10px;
+    line-height: 4rem;
+}
+
+.text-box p {
+    font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: #555;
+}
+
+.text-box a {
+    color: #0047AB;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.text-box a:hover {
+    color: #002b7f;
+}
+
+.text-box a::after {
+    content: "→";
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-box a:hover::after {
+    transform: translateX(5px);
+}
+
+/* === ALTERNATING LAYOUT FOR REVERSE SECTIONS === */
+.section.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.reverse .text-box {
+    order: -1;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .text-box {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Make sections stack vertically on small screens */
+    .section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .box {
+        order: -1; /* Image always first */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .box img {
+        width: 100%;
+        height: auto; /* Prevents image stretching */
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .reverse .box {
+        order: -1; /* Ensures reverse sections also have image first */
+    }
+
+    .reverse .text-box {
+        order: 0; /* Ensures text comes after the image */
+    }
+
+    .text-box {
+        padding: 2rem;
+    }
+}
+/* Trending Section */
+/* Trending Section */
+.trending {
+    background: #001e2b;
+    color: #fff;
+    padding: 20px 5%;
+}
+
+/* Flex container */
+.trending-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+/* Trending Title */
+.trending-list h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-right: auto; /* Pushes h2 to the left */
+    white-space: nowrap; /* Prevents text from breaking */
+}
+
+/* Individual trending items */
+.trending-item {
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    max-width: 25%; /* Ensures columns stay in place */
+}
+
+/* Numbered labels */
+.trending-item span {
+    font-weight: bold;
+    color: #0099ff;
+    padding-right: 10px;
+    border-right: 2px solid #fff; /* Vertical line */
+}
+
+/* Scroll effect only for small screens */
+@media (max-width: 768px) {
+    .trending-list {
+        overflow-x: auto; /* Enables horizontal scrolling */
+        display: flex;
+        flex-wrap: nowrap; /* Keeps items in a single row */
+        padding-bottom: 10px;
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #0099ff #001e2b; /* Scrollbar colors */
+    }
+
+    /* Hide default scrollbar for Webkit browsers */
+    .trending-list::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .trending-list::-webkit-scrollbar-thumb {
+        background: #0099ff;
+        border-radius: 5px;
+    }
+
+    .trending-list::-webkit-scrollbar-track {
+        background: #001e2b;
+    }
+
+    .trending-item {
+        flex-shrink: 0; /* Prevents shrinking */
+        max-width: none; /* Allows scrolling without layout change */
+        white-space: nowrap; /* Keeps text in one line */
+    }
+}
+.gridhello {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns */
+    width: 100%;
+    height: 80vh;
+    /* Reduced section height */
+}
+
+.gridhello .col1 {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align text at the bottom of the image */
+    background-color: #f4f4f4;
+}
+    .column.text-bottom p {
+font-size: 1.5rem;
+font-weight: 500;
+line-height: 1.75rem;
+}
+
+.row .col p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.75rem;
+}
+
+.gridhello .col1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure image covers the column completely */
+}
+
+.gridhello .col1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    /* Adjust the height of the gradient */
+    background: linear-gradient(to top, white, transparent);
+}
+
+.gridhello .col1 .text {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: black;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 300;
+    z-index: 1;
+}
+
+.gridhello .col2 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* Two rows */
+}
+
+.gridhello .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns in each row */
+}
+
+.gridhello .row .col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+}
+
+/* Background colors */
+.gridhello .row .col:nth-child(1) {
+    background-color: white;
+    /* White background for Column 1 in Row 1 */
+}
+
+.gridhello .row .col:nth-child(2) {
+    background-color: white;
+    /* White background for Column 2 in Row 1 */
+    display: flex;
+    /* Enable flexbox */
+    flex-direction: column;
+    /* Stack content vertically */
+    justify-content: flex-end;
+    /* Align text at the bottom */
+}
+
+.gridhello .row .col:nth-child(2) p {
+    margin: 0;
+    padding: 20px;
+}
+
+.gridhello .row:nth-child(2) .col:nth-child(1) {
+    background-color: navy;
+    /* Navy blue background for Column 1 in Row 2 */
+    color: white;
+    /* White text color */
+}
+
+.gridhello .row:nth-child(2) .col:nth-child(2) {
+    background-color: navy;
+    /* Navy blue background for Column 2 in Row 2 */
+    color: white;
+    /* White text color */
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .gridhello {
+        grid-template-columns: 1fr;
+        /* Single column layout */
+        height: auto;
+        /* Allow height to adjust based on content */
+    }
+
+    .gridhello .col2 {
+        grid-template-rows: auto;
+    }
+
+    .gridhello .row {
+        grid-template-columns: 1fr;
+        /* Single column in each row on smaller screens */
+    }
+}
+
+.grid4 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.grid4 .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.grid4 .column {
+    flex: 1;
+    min-width: 220px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Ensures content inside column is vertically aligned */
+    height: 100%;
+}
+
+.grid4 .text-bottom {
+    margin-top: auto;
+    /* This ensures the text is pushed to the bottom of the column */
+    padding-top: 20px;
+    /* Optional: Top padding */
+    padding-bottom: 20px;
+    /* Optional: Bottom padding */
+    padding-left: 10px;
+    /* Optional: Left padding */
+    padding-right: 10px;
+    /* Optional: Right padding */
+    text-align: left;
+    /* Optional: Center-align the text */
+}
+
+.grid4 .image-fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .grid4 .column {
+        flex: 1 0 100%;
+    }
+}
+/* Video Section */
+.video-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 120px;
+    gap: 20px;
+    /* Adds space between video and text columns */
+    box-sizing: border-box;
+    /* Ensures padding is accounted in the width */
+}
+
+.video-column {
+    flex: 1;
+    padding: 20px;
+    padding-left: 40px;
+    /* Extra left padding */
+}
+
+.text-column {
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Adds spacing below the text column */
+    box-sizing: border-box;
+    /* Ensures proper width calculation */
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+.text-column h2 {
+    font-size: 2.75rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+    line-height:3.35rem;
+}
+
+.text-column p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.arrow-link {
+    display: inline-block;
+    color: #007BFF;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.arrow-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .video-section {
+        flex-direction: column;
+        /* Stacks elements vertically */
+        padding: 20px 10px;
+        /* Reduces overall padding */
+        gap: 20px;
+        /* Adds space between sections */
+    }
+
+    .video-column {
+        flex: none;
+        width: 100%;
+        /* Ensures column takes up full width */
+        padding: 0;
+        /* Removes extra padding to fit the screen */
+    }
+
+    .text-column {
+        flex: none;
+        width: 100%;
+        /* Ensures column takes up full width */
+        padding: 0 10px;
+        /* Adds padding within the column */
+        margin-bottom: 30px;
+        /* Space below the text column */
+    }
+
+    video {
+        width: 100%;
+        /* Makes the video take the full width */
+        /* max-width: 320px; */
+        /* Optional: limit the size */
+        height: auto;
+        /* Maintains aspect ratio */
+        margin: 0 auto;
+        /* Centers the video */
+    }
+
+    .text-column h2 {
+        font-size: 20px;
+    }
+
+    .text-column p {
+        font-size: 14px;
+    }
+}
+/* General Styles */
+.job {
+  margin: 0; /* Removes any default margin */
+  padding: 0; /* No padding, including top padding */
+  width: 100%; /* Ensures the section spans the entire screen width */
+  background-color: #f4f4f4;
+}
+
+.job .job-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 100%; /* Makes the container span full width */
+  margin: 0; /* Removes any default margin */
+}
+
+.job .column {
+  width: 48%; /* Takes up roughly half of the container */
+}
+
+.job .text-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10%; /* Adds 10% padding on all sides */
+  text-align: center; /* Centers the text */
+}
+
+.job .text-column p {
+  font-size: 3.25rem; /* Large font size */
+  line-height: 4rem; /* Spaced line height */
+  font-weight: 300; /* Light font weight */
+  margin: 0; /* Remove any default margin */
+}
+
+.job .search-jobs {
+  display: inline-flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.job .search-jobs .arrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.job .search-jobs:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Image Column */
+.job .image-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensures the image doesn't exceed the box */
+  height: 100%; /* Ensures the image fills the entire column height */
+  padding: 0; /* Removes any padding from the column */
+}
+
+.job .image-column img {
+  width: 100%; /* Fills the full width of its container */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Ensures the image fills the container */
+  margin: 0; /* Removes any margin */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .job .job-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .job .column {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .job .text-column {
+    padding: 10%; /* Retain padding for mobile */
+    text-align: center; /* Centers text on smaller screens */
+  }
+
+  .job .search-jobs {
+    justify-content: center;
+  }
+}
+
+  
+/* Help Section */
+.help-section {
+    background: linear-gradient(135deg, #051C2C 60%, #03339c 100%);
+    text-align: center;
+    padding: 4rem 2rem;
+    color: white;
+}
+
+.help-section h2 {
+    font-size: 2.75rem;
+    font-family: "Bower", Georgia, "Times New Roman", serif;
+    font-weight: 300;
+    line-height: 3.25rem;
+    text-align: center;
+}
+
+.help-section p {
+    font-size: 1.25rem;
+    font-family: "Bower", Georgia, "Times New Roman", serif;
+    font-weight: 300;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.help-section a {
+    color: white;
+    text-decoration: underline;
+}
+
+.help-section a:hover {
+    color: lightblue;
+}
+
+
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <header class="header">
+            <a href="https://www.mckinsey.com" class="logo">
+                <img src="logo.png" alt="McKinsey & Company">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Industries</a>
+                        <ul class="dropdown">
+                            <li>Healthcare</li>
+                            <li>Finance</li>
+                            <li>Technology</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Capabilities</a>
+                        <ul class="dropdown">
+                            <li>AI & Data</li>
+                            <li>Strategy</li>
+                            <li>Consulting</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Featured Insights</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">McKinsey Blog</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" onclick="openMenu()">☰</div>
+        </header>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileMenu">
+            <span class="close-menu" onclick="closeMenu()">×</span>
+            <ul>
+                <li onclick="toggleDropdown(this)">Industries ▼
+                    <ul class="mobile-dropdown">
+                        <li>Healthcare</li>
+                        <li>Finance</li>
+                        <li>Technology</li>
+                    </ul>
+                </li>
+                <li onclick="toggleDropdown(this)">Capabilities ▼
+                    <ul class="mobile-dropdown">
+                        <li>AI & Data</li>
+                        <li>Strategy</li>
+                        <li>Consulting</li>
+                    </ul>
+                </li>
+                <li>Featured Insights</li>
+                <li>Locations</li>
+                <li>Careers</li>
+                <li>About Us</li>
+                <li>McKinsey Blog</li>
+            </ul>
+        </div>
+
+        <div class="hero-content">
+            <h1>The CEO as elite athlete:<br>What business leaders can learn from modern sports</h1>
+            <p>The role is harder than ever, requiring new habits of mind, body, and spirit.</p>
+            <a href="#">5 practices to adapt →</a>
+        </div>
+    </section>
+    <section class="trending">
+        <div class="trending-list">
+            <h2>Trending <br>Insights</h2>
+            <div class="trending-item"><span>1</span> Superagency in the workplace: Empowering people to unlock AI’s full potential</div>
+            <div class="trending-item"><span>2</span> Thriving workplaces: How employers can improve productivity and change lives</div>
+            <div class="trending-item"><span>3</span> Dependency and depopulation? Confronting the consequences of a new demographic reality</div>
+            <div class="trending-item"><span>4</span> The State of Fashion 2025: Challenges at every turn</div>
+        </div>
+    </section>
+    
+  <!-- Section 1 -->
+  <section class="section">
+    <div class="box">
+        <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg" alt="Office Image">
+    </div>
+    <div class="text-box">
+        <h2>How to get return to office right</h2>
+        <p>More and more leaders are bringing employees back to work in person...</p>
+        <a href="#">Opportunities and challenges</a>
+    </div>
+</section>
+
+<!-- Section 2 -->
+<section class="section reverse">
+    <div class="text-box">
+        <h2>A new operating model for people management</h2>
+        <p>More and more leaders are bringing employees back to work in person...</p>
+        <a href="#">Learn More</a>
+    </div>
+    <div class="box">
+        <img src="https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg" alt="Tech Image">
+    </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section">
+    <div class="box">
+        <img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg" alt="Innovation">
+    </div>
+    <div class="text-box">
+        <h2>Innovating for the future</h2>
+        <p>Technology is reshaping the way we work...</p>
+        <a href="#">Explore More</a>
+    </div>
+</section>
+
+<!-- Section 4 -->
+<section class="section reverse">
+    <div class="text-box">
+        <h2>Empowering the workforce</h2>
+        <p>New solutions are needed to support employees...</p>
+        <a href="#">Read More</a>
+    </div>
+    <div class="box">
+        <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg" alt="Empowerment">
+    </div>
+</section>
+
+<!-- Section 5 -->
+<section class="section">
+    <div class="box">
+        <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg" alt="Collaboration">
+    </div>
+    <div class="text-box">
+        <h2>Collaboration in the digital era</h2>
+        <p>Digital tools make teamwork more efficient...</p>
+        <a href="#">Discover More</a>
+    </div>
+</section>
+
+<!-- Section 6 -->
+<section class="section reverse">
+    <div class="text-box">
+        <h2>Technology and employee experience</h2>
+        <p>AI and automation are reshaping work culture...</p>
+        <a href="#">Explore Now</a>
+    </div>
+    <div class="box">
+        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg" alt="Tech Employees">
+    </div>
+</section>
+
+<!-- Section 7 -->
+<section class="section">
+    <div class="box">
+        <img src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" alt="Future Work">
+    </div>
+    <div class="text-box">
+        <h2>Future of workspaces</h2>
+        <p>How flexible offices are becoming the norm...</p>
+        <a href="#">Find Out More</a>
+    </div>
+</section>
+
+<!-- Section 8 -->
+<section class="section reverse">
+    <div class="text-box">
+        <h2>Building a resilient workforce</h2>
+        <p>Strategies for employee well-being and productivity...</p>
+        <a href="#">Learn More</a>
+    </div>
+    <div class="box">
+        <img src="https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg" alt="Resilience">
+    </div>
+</section>
+<section class="gridhello">
+    <div class="col1">
+      <img src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" alt="Sample Image">
+      <div class="text">Building careers and changing lives: A decade of impact with Generation</div>
+    </div>
+    <div class="col2">
+      <div class="row">
+        <div class="col">
+          <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg" alt="Image 1" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="col">
+          <p>New McKinsey research reveals the “wizardry” behind 18 hyper-growth industries</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>New McKinsey research reveals the “wizardry” behind 18 hyper-growth industries</p>
+        </div>
+        <div class="col">
+          <!-- <p>Text in Column 2 in Row 2</p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="grid4">
+    <div class="row">
+      <div class="column text-bottom">
+        <p>New McKinsey research reveals the “wizardry” behind 18 hyper-growth industries</p>
+      </div>
+      <div class="column image-fit">
+        <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg" alt="Image 1">
+      </div>
+      <div class="column text-bottom">
+        <p>New McKinsey research reveals the “wizardry” behind 18 hyper-growth industries</p>
+      </div>
+      <div class="column image-fit">
+        <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg" alt="Image 2">
+      </div>
+    </div>
+  </section>
+  <section class="video-section">
+    <div class="video-column">
+      <video controls>
+        <source src="your-video-file.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="text-column">
+      <h2>How can we drive sustainable and inclusive growth forward?</h2>
+      <p>What does it mean to accelerate sustainable and inclusive growth?</p>
+      <p>McKinsey partners from around the world weigh in.</p>
+
+      <a href="next-page.html" class="arrow-link">→ Next Page</a>
+    </div>
+  </section>
+
+
+  <section class="job">
+    <div class="job-container">
+      <div class="column text-column">
+        <p>Are you seeking an exciting role that will challenge and inspire you?</p>
+        <a href="/HTML/career.html" class="search-jobs">
+          Careers
+          <span class="arrow">&#8594;</span>
+        </a>
+      </div>
+      <div class="column image-column">
+        <img src="bussiness-people-working-team-office.jpg" alt="Job Image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Help Section -->
+  <section class="help-section">
+    <h2>Let’s Collaborate to Transform Your Business</h2>
+    <p>How Can We Help You <a href="#"> Achieve Your Goals</a> ?</p>
+  </section>
+<footer class="footer">
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <hr>
+            <a href="/HTML/AboutUs.html">About</a>
+            <a href="/HTML/Index.html">Home</a>
+            <a href="/HTML/contact2.html">Contact</a>
+            <a href="/HTML/solutions.html">Service Solution</a>
+            <a href="/HTML/Products.html">Products</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Useful Links</h4>
+            <hr>
+            <a href="/HTML/termsofuse.html">Terms of Use</a>
+            <a href="/HTML/faq.html">FAQ</a>
+            <a href="/HTML/privacypolicy.html">Privacy Policy</a>
+            <a href="#">Support</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <hr>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contact@gritbyte.com</p>
+            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91-789879879</p>
+            <a href="#">Find an Office Near You →</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Address</h4>
+            <hr>
+            <div class="location-item">
+                <img src="/sweden.png" alt="India Flag" class="flag-icon">
+                <p>Bangalore</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="UAE Flag" class="flag-icon">
+                <p>Dubai</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="USA Flag" class="flag-icon">
+                <p>New York</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="UK Flag" class="flag-icon">
+                <p>London</p>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p>© 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+</footer>
+<script>
+    function openMenu() {
+        document.getElementById("mobileMenu").style.right = "0";
+    }
+
+    function closeMenu() {
+        document.getElementById("mobileMenu").style.right = "-100%";
+    }
+
+    function toggleDropdown(el) {
+        el.classList.toggle("active");
+    }
+</script>
+<script>
+    function openMenu() {
+        document.getElementById("mobileMenu").style.right = "0";
+    }
+
+    function closeMenu() {
+        document.getElementById("mobileMenu").style.right = "-250px";
+    }
+</script>
+
+</body>
+</html>

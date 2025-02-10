@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McKinsey & Company</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(to right, #dff2fd, #f5f9fc);
+            padding: 20px 12%;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Header (Wider) */
+        /* Full-Width Header */
+header {
+    width: 100vw; /* Full screen width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%; /* Adds left and right padding */
+    /* background: #fff; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+
+        .logo img {
+            height: 50px;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+            padding: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 0;
+            display: inline-block;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0055b7;
+            border-bottom: 2px solid #0055b7;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+            z-index: 10;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown li:hover {
+            background: #f0f0f0;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            max-width: 50%;
+            padding-right: 20px;
+            align-self: flex-end;
+            margin-top: 120px; /* Push text slightly below the header */
+        }
+
+        .hero-content h1 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .hero-content a {
+            font-size: 18px;
+            color: #0055b7;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .hero-content a:hover {
+            color: #002d70;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown {
+            display: none;
+            padding-left: 15px;
+        }
+
+        .mobile-nav ul li.active .mobile-dropdown {
+            display: block;
+        }
+
+        .close-menu {
+            font-size: 30px;
+            cursor: pointer;
+            display: block;
+            text-align: right;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 60px 8%;
+            }
+            .hero-content {
+                max-width: 70%;
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 50px 5%;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding-right: 0;
+                margin-top: 350px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <header class="header">
+            <a href="https://www.mckinsey.com" class="logo">
+                <img src="logo.png" alt="McKinsey & Company">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Industries</a>
+                        <ul class="dropdown">
+                            <li>Healthcare</li>
+                            <li>Finance</li>
+                            <li>Technology</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Capabilities</a>
+                        <ul class="dropdown">
+                            <li>AI & Data</li>
+                            <li>Strategy</li>
+                            <li>Consulting</li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Featured Insights</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">McKinsey Blog</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" onclick="openMenu()">☰</div>
+        </header>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileMenu">
+            <span class="close-menu" onclick="closeMenu()">×</span>
+            <ul>
+                <li onclick="toggleDropdown(this)">Industries ▼
+                    <ul class="mobile-dropdown">
+                        <li>Healthcare</li>
+                        <li>Finance</li>
+                        <li>Technology</li>
+                    </ul>
+                </li>
+                <li onclick="toggleDropdown(this)">Capabilities ▼
+                    <ul class="mobile-dropdown">
+                        <li>AI & Data</li>
+                        <li>Strategy</li>
+                        <li>Consulting</li>
+                    </ul>
+                </li>
+                <li>Featured Insights</li>
+                <li>Locations</li>
+                <li>Careers</li>
+                <li>About Us</li>
+                <li>McKinsey Blog</li>
+            </ul>
+        </div>
+
+        <div class="hero-content">
+            <h1>The CEO as elite athlete:<br>What business leaders can learn from modern sports</h1>
+            <p>The role is harder than ever, requiring new habits of mind, body, and spirit.</p>
+            <a href="#">5 practices to adapt →</a>
+        </div>
+    </section>
+
+    <script>
+        function openMenu() {
+            document.getElementById("mobileMenu").style.right = "0";
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileMenu").style.right = "-100%";
+        }
+
+        function toggleDropdown(el) {
+            el.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McKinsey & Company Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f9fc;
+    color: #000;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav {
+    position: relative;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+/* Dropdown */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 10px;
+}
+
+.nav-links li:hover .dropdown {
+    display: block;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 150px 50px;
+    background: linear-gradient(to right, #dff2fd, #f5f9fc);
+    height: 100vh;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.hero-content a {
+    font-size: 16px;
+    color: #0055b7;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Trending Section */
+.trending {
+    background: #001e2b;
+    color: #fff;
+    padding: 20px 50px;
+}
+
+.trending h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.trending-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trending-item {
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 22%;
+    position: relative;
+}
+
+.trending-item span {
+    font-weight: bold;
+    color: #0099ff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.separator {
+    width: 2px;
+    height: 40px;
+    background: white;
+    margin-right: 10px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: white;
+        width: 100%;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .hero {
+        padding: 100px 30px;
+        text-align: left;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .trending-list {
+        flex-direction: column;
+    }
+
+    .trending-item {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">McKinsey & Company</div>
+        <nav>
+            <div class="hamburger">&#9776;</div>
+            <ul class="nav-links">
+                <li>Industries <span class="arrow">▼</span>
+                    <ul class="dropdown">
+                        <li>Finance</li>
+                        <li>Healthcare</li>
+                        <li>Technology</li>
+                    </ul>
+                </li>
+                <li>Capabilities <span class="arrow">▼</span>
+                    <ul class="dropdown">
+                        <li>Consulting</li>
+                        <li>Strategy</li>
+                        <li>Operations</li>
+                    </ul>
+                </li>
+                <li>Featured Insights</li>
+                <li>Locations</li>
+                <li>Careers</li>
+                <li>About Us</li>
+                <li>McKinsey Blog</li>
+            </ul>
+        </nav>
+        <div class="auth-search">
+            <span>Sign In | Subscribe</span>
+            <span class="search-icon">🔍</span>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animated-text">The CEO as elite athlete:<br>What business leaders can learn from modern sports</h1>
+            <p>The role is harder than ever, requiring new habits of mind, body, and spirit.</p>
+            <a href="#">5 practices to adapt →</a>
+        </div>
+    </section>
+    
+    <section class="trending">
+        <h2>Trending Insights</h2>
+        <div class="trending-list">
+            <div class="trending-item"><span>1</span><div class="separator"></div> Superagency in the workplace: Unlocking AI’s potential</div>
+            <div class="trending-item"><span>2</span><div class="separator"></div> Thriving workplaces: Improving productivity</div>
+            <div class="trending-item"><span>3</span><div class="separator"></div> Dependency and depopulation: Demographic reality</div>
+            <div class="trending-item"><span>4</span><div class="separator"></div> The State of Fashion 2025: Challenges ahead</div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", function() {
+        navLinks.classList.toggle("active");
+    });
+});
+
+    </script>
+</body>
+</html>

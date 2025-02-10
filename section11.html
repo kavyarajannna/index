@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+ /* === GLOBAL STYLES === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding & border are included in width calculations */
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* === SECTION LAYOUT (DESKTOP) === */
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    width: 100%;
+}
+
+/* === CONTENT BOXES === */
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: block; /* Prevents extra spacing below the image */
+}
+
+/* === TEXT CONTAINER === */
+.text-box {
+    background-color: #f4f4f4;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.text-box h2 {
+    font-family: "Bower", Georgia, "Times New Roman", serif;
+    font-size: 3.25rem;
+    margin-bottom: 10px;
+    line-height: 4rem;
+}
+
+.text-box p {
+    font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    color: #555;
+}
+
+.text-box a {
+    color: #0047AB;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.text-box a:hover {
+    color: #002b7f;
+}
+
+.text-box a::after {
+    content: "→";
+    margin-left: 5px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.text-box a:hover::after {
+    transform: translateX(5px);
+}
+
+/* === ALTERNATING LAYOUT FOR REVERSE SECTIONS === */
+.section.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.reverse .text-box {
+    order: -1;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .text-box {
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Make sections stack vertically on small screens */
+    .section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .box {
+        order: -1; /* Image always first */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .box img {
+        width: 100%;
+        height: auto; /* Prevents image stretching */
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .reverse .box {
+        order: -1; /* Ensures reverse sections also have image first */
+    }
+
+    .reverse .text-box {
+        order: 0; /* Ensures text comes after the image */
+    }
+
+    .text-box {
+        padding: 2rem;
+    }
+}
+
+
+   
+    </style>
+</head>
+<body>
+    <!-- Section 1 -->
+    <section class="section">
+        <div class="box">
+            <img src="https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg" alt="Office Image">
+        </div>
+        <div class="text-box">
+            <h2>How to get return to office right</h2>
+            <p>More and more leaders are bringing employees back to work in person...</p>
+            <a href="#">Opportunities and challenges</a>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section reverse">
+        <div class="text-box">
+            <h2>A new operating model for people management</h2>
+            <p>More and more leaders are bringing employees back to work in person...</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="box">
+            <img src="https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg" alt="Tech Image">
+        </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section">
+        <div class="box">
+            <img src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg" alt="Innovation">
+        </div>
+        <div class="text-box">
+            <h2>Innovating for the future</h2>
+            <p>Technology is reshaping the way we work...</p>
+            <a href="#">Explore More</a>
+        </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section reverse">
+        <div class="text-box">
+            <h2>Empowering the workforce</h2>
+            <p>New solutions are needed to support employees...</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="box">
+            <img src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg" alt="Empowerment">
+        </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section">
+        <div class="box">
+            <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg" alt="Collaboration">
+        </div>
+        <div class="text-box">
+            <h2>Collaboration in the digital era</h2>
+            <p>Digital tools make teamwork more efficient...</p>
+            <a href="#">Discover More</a>
+        </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section reverse">
+        <div class="text-box">
+            <h2>Technology and employee experience</h2>
+            <p>AI and automation are reshaping work culture...</p>
+            <a href="#">Explore Now</a>
+        </div>
+        <div class="box">
+            <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg" alt="Tech Employees">
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="section">
+        <div class="box">
+            <img src="https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg" alt="Future Work">
+        </div>
+        <div class="text-box">
+            <h2>Future of workspaces</h2>
+            <p>How flexible offices are becoming the norm...</p>
+            <a href="#">Find Out More</a>
+        </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="section reverse">
+        <div class="text-box">
+            <h2>Building a resilient workforce</h2>
+            <p>Strategies for employee well-being and productivity...</p>
+            <a href="#">Learn More</a>
+        </div>
+        <div class="box">
+            <img src="https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg" alt="Resilience">
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Insights</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f9fc;
+            color: #fff;
+        }
+
+        /* Trending Section */
+        .trending {
+            background: #001e2b;
+            color: #fff;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .trending h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-right: 20px;
+            white-space: nowrap;
+        }
+
+        .trending-list {
+            display: flex;
+            gap: 25px; /* Space between items */
+            flex-wrap: nowrap;
+            overflow-x: auto;
+        }
+
+        .trending-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .trending-item span {
+            font-weight: bold;
+            color: #0099ff;
+            font-size: 16px;
+            margin-right: 8px;
+        }
+
+        .divider {
+            width: 1px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 0 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="trending">
+        <h2>Trending Insights</h2>
+        <div class="trending-list">
+            <div class="trending-item">
+                <span>1</span>
+                <div>Superagency in the workplace: Empowering people to unlock AI’s full potential</div>
+                <div class="divider"></div>
+            </div>
+            <div class="trending-item">
+                <span>2</span>
+                <div>Thriving workplaces: How employers can improve productivity and change lives</div>
+                <div class="divider"></div>
+            </div>
+            <div class="trending-item">
+                <span>3</span>
+                <div>Dependency and depopulation? Confronting the consequences of a new demographic reality</div>
+                <div class="divider"></div>
+            </div>
+            <div class="trending-item">
+                <span>4</span>
+                <div>The State of Fashion 2025: Challenges at every turn</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

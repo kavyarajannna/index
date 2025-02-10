@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column hr {
+            width: 50px;
+            border: 2px solid #ff6600;
+            margin-bottom: 15px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff6600;
+        }
+
+        .footer-column p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .location-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-column {
+                text-align: center;
+            }
+            .location-item {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<footer class="footer">
+    <div class="footer-container">
+        
+        <div class="footer-column">
+            <h4>Quick Links</h4>
+            <hr>
+            <a href="/HTML/AboutUs.html">About</a>
+            <a href="/HTML/Index.html">Home</a>
+            <a href="/HTML/contact2.html">Contact</a>
+            <a href="/HTML/solutions.html">Service Solution</a>
+            <a href="/HTML/Products.html">Products</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Useful Links</h4>
+            <hr>
+            <a href="/HTML/termsofuse.html">Terms of Use</a>
+            <a href="/HTML/faq.html">FAQ</a>
+            <a href="/HTML/privacypolicy.html">Privacy Policy</a>
+            <a href="#">Support</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact Information</h4>
+            <hr>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contact@gritbyte.com</p>
+            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +91-789879879</p>
+            <a href="#">Find an Office Near You →</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Address</h4>
+            <hr>
+            <div class="location-item">
+                <img src="/sweden.png" alt="India Flag" class="flag-icon">
+                <p>Bangalore</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="UAE Flag" class="flag-icon">
+                <p>Dubai</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="USA Flag" class="flag-icon">
+                <p>New York</p>
+            </div>
+            <div class="location-item">
+                <img src="/sweden.png" alt="UK Flag" class="flag-icon">
+                <p>London</p>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class="footer-bottom">
+        <p>© 2025 Gritbyte Labs. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>

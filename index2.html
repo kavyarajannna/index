@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McKinsey & Company Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+      
+/* Trending Section */
+/* Trending Section */
+.trending {
+    background: #001e2b;
+    color: #fff;
+    padding: 20px 5%;
+}
+
+/* Flex container */
+.trending-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+/* Trending Title */
+.trending-list h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-right: auto; /* Pushes h2 to the left */
+    white-space: nowrap; /* Prevents text from breaking */
+}
+
+/* Individual trending items */
+.trending-item {
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    max-width: 25%; /* Ensures columns stay in place */
+}
+
+/* Numbered labels */
+.trending-item span {
+    font-weight: bold;
+    color: #0099ff;
+    padding-right: 10px;
+    border-right: 2px solid #fff; /* Vertical line */
+}
+
+/* Scroll effect only for small screens */
+@media (max-width: 768px) {
+    .trending-list {
+        overflow-x: auto; /* Enables horizontal scrolling */
+        display: flex;
+        flex-wrap: nowrap; /* Keeps items in a single row */
+        padding-bottom: 10px;
+        scrollbar-width: thin; /* For Firefox */
+        scrollbar-color: #0099ff #001e2b; /* Scrollbar colors */
+    }
+
+    /* Hide default scrollbar for Webkit browsers */
+    .trending-list::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .trending-list::-webkit-scrollbar-thumb {
+        background: #0099ff;
+        border-radius: 5px;
+    }
+
+    .trending-list::-webkit-scrollbar-track {
+        background: #001e2b;
+    }
+
+    .trending-item {
+        flex-shrink: 0; /* Prevents shrinking */
+        max-width: none; /* Allows scrolling without layout change */
+        white-space: nowrap; /* Keeps text in one line */
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+   
+ 
+    <section class="trending">
+        <div class="trending-list">
+            <h2>Trending <br>Insights</h2>
+            <div class="trending-item"><span>1</span> Superagency in the workplace: Empowering people to unlock AI’s full potential</div>
+            <div class="trending-item"><span>2</span> Thriving workplaces: How employers can improve productivity and change lives</div>
+            <div class="trending-item"><span>3</span> Dependency and depopulation? Confronting the consequences of a new demographic reality</div>
+            <div class="trending-item"><span>4</span> The State of Fashion 2025: Challenges at every turn</div>
+        </div>
+    </section>
+    
+    
+    <script>
+        function openMenu() {
+            document.getElementById("mobileMenu").style.right = "0";
+        }
+
+        function closeMenu() {
+            document.getElementById("mobileMenu").style.right = "-250px";
+        }
+    </script>
+</body>
+</html>

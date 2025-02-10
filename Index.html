@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hero Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "McKinsey Sans", "Helvetica Neue", Calibri, Corbel, Helvetica, Roboto, Droid, sans-serif;
+            color: white;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('/blue.png') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(to bottom, black, white);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        .logo img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .nav {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav a:hover {
+            color: #ff6600;
+        }
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #ff6600;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+        .menu-icon {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: black;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            flex-direction: column;
+            padding: 0.5rem 0;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: flex;
+        }
+        .dropdown-menu a {
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background: #ff6600;
+        }
+        .hero-text {
+            position: absolute;
+            bottom: 4rem;
+            left: 4rem;
+            max-width: 40%;
+            text-align: left;
+            animation: slideUp 1.5s ease-in-out;
+        }
+        .hero-text h4 {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-family: "Bower", Georgia, "Times New Roman", serif;
+        }
+        .hero-text h1 {
+            font-size: 4.75rem;
+            font-weight: 300;
+            line-height: 5.75rem;
+        }
+        .hero-text p {
+            font-size: 1.1255rem;
+            line-height: 1.75rem;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                left: -100%;
+                background: black;
+                width: 250px;
+                height: 100vh;
+                padding: 2rem;
+                transition: left 0.3s ease-in-out;
+            }
+            .nav.active {
+                left: 0;
+                display: flex;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .dropdown-menu {
+                position: static;
+                background: none;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="header">
+            <div class="logo" onclick="location.href='index.html';">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <nav class="nav">
+                <a href="#">Home</a>
+                <div class="dropdown">
+                    <a href="#">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Consulting</a>
+                        <a href="#">Strategy</a>
+                        <a href="#">Digital Transformation</a>
+                    </div>
+                </div>
+                <a href="#">About</a>
+                <a href="#">Insights</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+        <div class="hero-text">
+            <h4>Welcome to</h4>
+            <h1>McKinsey India</h1>
+            <p>For 30+ years, we have partnered with many of India’s companies and public institutions to create winning strategies and solve some of the most complex problems.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
